@@ -3,7 +3,7 @@ import HeroContent from "../component/hero-content.component";
 
 const HeroScreen = () => {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-neutral-50 dark:bg-black transition-colors duration-300">
+    <div className="relative min-h-screen overflow-hidden bg-black">
       <Background />
       <HeroContent />
     </div>

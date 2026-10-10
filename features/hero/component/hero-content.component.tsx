@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Download } from "lucide-react";
 import Image from "next/image";
-import { buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 
 const ROLES = ["Software Engineer", "Full Stack Developer", "Gen AI Developer"];
 const DISPLAY_DURATION = 2500;
@@ -88,29 +88,29 @@ const HeroContent = () => {
         transition={{ duration: 0.6, delay: 0.6 }}
         className="flex flex-wrap items-center justify-center gap-4"
       >
-        <a
-          href="mailto:hello@arin.dev"
-          className={buttonVariants({
-            size: "lg",
-            className: "rounded-full px-7 py-3",
-          })}
+        <Button
+          size="lg"
+          className="rounded-full px-7 h-11 inline-flex items-center gap-2 cursor-pointer transition-all active:scale-95 shadow-sm"
+          render={<a href="mailto:hello@arin.dev" />}
         >
-          <Mail className="h-4 w-4" />
-          Let&apos;s Talk
-        </a>
-        <a
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={buttonVariants({
-            variant: "outline",
-            size: "lg",
-            className: "rounded-full px-7 py-3",
-          })}
+          <Mail className="size-4" />
+          <span>Let&apos;s Talk</span>
+        </Button>
+        <Button
+          variant="outline"
+          size="lg"
+          className="rounded-full px-7 h-11 inline-flex items-center gap-2 cursor-pointer transition-all active:scale-95"
+          render={
+            <a
+              href="https://drive.google.com/file/d/1FdJxIXm1uEbT4NPgiqU2BdTyNuCT-m7o/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+            />
+          }
         >
-          <Download className="h-4 w-4" />
-          Resume
-        </a>
+          <Download className="size-4" />
+          <span>Resume</span>
+        </Button>
       </motion.div>
     </div>
   );

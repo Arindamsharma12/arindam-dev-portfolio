@@ -437,6 +437,7 @@ const PrismaticBurst = ({
     const canvas = rendererRef.current?.gl?.canvas;
 
     if (canvas) {
+      // eslint-disable-next-line react-hooks/immutability
       canvas.style.mixBlendMode = lightMode
         ? 'normal'
         : mixBlendMode && mixBlendMode !== 'none'

@@ -83,11 +83,12 @@ export function ProjectCard({ project, onNext }: ProjectCardProps) {
           </Button>
 
           {/* Index Counter */}
-          <button
+          <Button
             type="button"
+            variant="ghost"
             onClick={onNext}
             title={onNext ? "Click to view next project" : undefined}
-            className={`flex items-baseline font-mono ml-2 sm:ml-3 select-none transition-opacity ${
+            className={`flex items-baseline font-mono ml-2 sm:ml-3 select-none transition-opacity h-auto p-0 hover:bg-transparent bg-transparent ${
               onNext ? "cursor-pointer hover:opacity-80" : "cursor-default"
             }`}
           >
@@ -97,7 +98,7 @@ export function ProjectCard({ project, onNext }: ProjectCardProps) {
             <span className="text-base sm:text-lg font-medium text-neutral-700">
               /{project.total}
             </span>
-          </button>
+          </Button>
         </div>
       </div>
 

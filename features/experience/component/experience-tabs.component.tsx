@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 export type ExperienceTabType = "experience" | "education" | "certifications";
 
@@ -50,17 +51,18 @@ export const ExperienceTabs = ({
         const isActive = activeTab === tab.id;
 
         return (
-          <button
+          <Button
             key={tab.id}
+            variant="ghost"
             role="tab"
             aria-selected={isActive}
             aria-controls={`tabpanel-${tab.id}`}
             id={`tab-${tab.id}`}
             onClick={() => onChange(tab.id)}
             className={cn(
-              "relative px-5 py-2.5 sm:px-6 sm:py-3 font-mono text-xs sm:text-sm font-bold tracking-[0.25em] transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white",
+              "relative h-auto rounded-none bg-transparent hover:bg-transparent px-5 py-2.5 sm:px-6 sm:py-3 font-mono text-xs sm:text-sm font-bold tracking-[0.25em] transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white",
               isActive
-                ? "text-neutral-900 dark:text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] blur-none"
+                ? "text-neutral-900 dark:text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] blur-none hover:text-neutral-900 dark:hover:text-white"
                 : "text-neutral-400 dark:text-neutral-500 blur-[0.7px] hover:blur-none hover:text-neutral-800 dark:hover:text-neutral-300"
             )}
           >
@@ -87,7 +89,7 @@ export const ExperienceTabs = ({
             )}
 
             <span className="relative z-10">{tab.label}</span>
-          </button>
+          </Button>
         );
       })}
     </div>
