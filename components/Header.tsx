@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -26,38 +26,72 @@ export interface HeaderProps {
 export function Header({ className }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isMobileHidden, setIsMobileHidden] = useState(false);
+  const lastScrollYRef = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 20);
+
+      // Keep header visible when near the top of the page
+      if (currentScrollY <= 30) {
+        setIsMobileHidden(false);
+      } else if (currentScrollY > lastScrollYRef.current + 8) {
+        // Scrolling down: hide header on small screens
+        if (!mobileMenuOpen) {
+          setIsMobileHidden(true);
+        }
+      } else if (currentScrollY < lastScrollYRef.current - 8) {
+        // Scrolling up: show header on small screens
+        setIsMobileHidden(false);
+      }
+
+      lastScrollYRef.current = currentScrollY;
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [mobileMenuOpen]);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      setIsMobileHidden(false);
+    }
+  }, [mobileMenuOpen]);
 
   return (
     <>
-      {/* Theme Toggle - Left side */}
-      <div className="fixed top-6 left-4 md:left-8 z-50 pointer-events-auto">
+      {/* Desktop Theme Toggle - Left side */}
+      <div className="hidden md:block fixed top-6 left-4 md:left-8 z-50 pointer-events-auto">
         <ThemeToggle />
       </div>
 
       <header
         className={cn(
-          "fixed top-6 inset-x-0 z-40 flex justify-center px-4 pointer-events-none transition-all duration-300",
+          "fixed top-6 inset-x-0 z-40 flex justify-center px-4 pointer-events-none transition-all duration-300 ease-out",
+          isMobileHidden
+            ? "max-md:-translate-y-28 max-md:opacity-0 max-md:pointer-events-none"
+            : "max-md:translate-y-0 max-md:opacity-100",
+          "md:translate-y-0 md:opacity-100",
           className
         )}
       >
-        <nav
-          aria-label="Main Navigation"
-          className={cn(
-            "pointer-events-auto relative flex items-center justify-between w-full max-w-3xl px-6 py-2.5 rounded-2xl border transition-all duration-300 ml-14 md:ml-0",
-            scrolled
-              ? "bg-white/75 dark:bg-black/70 backdrop-blur-md border-neutral-200/80 dark:border-white/10 shadow-lg shadow-neutral-900/5 dark:shadow-black/30"
-              : "bg-white/45 dark:bg-black/40 backdrop-blur-md border-neutral-200/60 dark:border-white/[0.08]"
-          )}
-        >
+        <div className="flex items-center gap-2.5 sm:gap-3 w-full max-w-3xl pointer-events-none">
+          {/* Mobile Theme Toggle - aligned side-by-side with header nav */}
+          <div className="flex md:hidden pointer-events-auto shrink-0 items-center">
+            <ThemeToggle className="h-[46px] w-[46px] sm:h-[46px] sm:w-[46px] rounded-2xl" />
+          </div>
+
+          <nav
+            aria-label="Main Navigation"
+            className={cn(
+              "pointer-events-auto relative flex items-center justify-between flex-1 md:w-full px-6 py-2.5 rounded-2xl border transition-all duration-300",
+              scrolled
+                ? "bg-white/75 dark:bg-black/70 backdrop-blur-md border-neutral-200/80 dark:border-white/10 shadow-lg shadow-neutral-900/5 dark:shadow-black/30"
+                : "bg-white/45 dark:bg-black/40 backdrop-blur-md border-neutral-200/60 dark:border-white/[0.08]"
+            )}
+          >
           {/* Brand - Left */}
           <div className="flex items-center">
             <Link
@@ -146,7 +180,8 @@ export function Header({ className }: HeaderProps) {
             )}
           </AnimatePresence>
         </nav>
-      </header>
+      </div>
+    </header>
     </>
   );
 }
