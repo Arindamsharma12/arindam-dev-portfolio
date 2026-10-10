@@ -7,8 +7,17 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "wallmantra.com",
-        pathname:
-          "/inspiration/app/uploads/2026/10/waving-hand-skin-2-svgrepo-com.svg",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "media.licdn.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "/**",
       },
     ],
   },
