@@ -92,8 +92,7 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
           "Tailwind CSS",
         ],
         media: {
-          title:
-            "The House of Luxury Home Decor, Furnishing & Furniture - WallMantra",
+          title: "WallMantra E-Commerce & Mobile Platform",
           description: "WallMantra E-Commerce Architecture & Mobile Platform",
           url: "https://wallmantra.com",
           imageUrl:

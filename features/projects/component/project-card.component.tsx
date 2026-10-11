@@ -15,34 +15,34 @@ export interface ProjectCardProps {
 
 export function ProjectCard({ project, onNext }: ProjectCardProps) {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 items-center w-full">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-12 xl:gap-16 items-center w-full">
       {/* Left Column: Details */}
-      <div className="flex flex-col justify-center max-w-xl">
+      <div className="flex flex-col justify-center max-w-xl mx-auto lg:mx-0 w-full">
         {/* Category / Tagline */}
-        <p className="text-sm sm:text-base font-semibold text-white tracking-normal leading-snug">
+        <p className="text-xs sm:text-sm lg:text-base font-semibold text-white/90 tracking-normal leading-snug">
           {project.category}
         </p>
 
         {/* Thin Divider Line */}
-        <div className="w-full h-px bg-neutral-800/80 mt-3 mb-6 sm:mb-7" />
+        <div className="w-full h-px bg-neutral-800/80 mt-1.5 mb-2.5 sm:mt-2.5 sm:mb-4 lg:mt-3 lg:mb-7" />
 
         {/* Project Title */}
-        <h2 className="text-5xl sm:text-6xl md:text-7xl font-semibold text-white  mb-5 sm:mb-6">
+        <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-2 sm:mb-3 lg:mb-6 tracking-tight">
           {project.title}
         </h2>
 
         {/* Description */}
-        <p className="text-neutral-400 text-base sm:text-lg leading-relaxed mb-8">
+        <p className="text-neutral-400 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed mb-3 sm:mb-5 lg:mb-8">
           {project.description}
         </p>
 
         {/* Tech Stack Badges */}
-        <div className="flex flex-wrap gap-2 sm:gap-2.5 mb-10">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 lg:gap-2.5 mb-3 sm:mb-5 lg:mb-10">
           {project.techStack.map((tech) => (
             <Badge
               key={tech}
               variant="outline"
-              className="bg-[#141417] hover:bg-[#1f1f24] border-neutral-800 text-neutral-300 text-xs sm:text-sm font-normal px-3.5 py-1.5 rounded-lg transition-colors cursor-default"
+              className="bg-[#141417] hover:bg-[#1f1f24] border-neutral-800 text-neutral-300 text-[10px] sm:text-xs lg:text-sm font-normal px-2.5 py-0.5 sm:px-3 sm:py-1 lg:px-3.5 lg:py-1.5 rounded-md sm:rounded-lg transition-colors cursor-default"
             >
               {tech}
             </Badge>
@@ -50,7 +50,7 @@ export function ProjectCard({ project, onNext }: ProjectCardProps) {
         </div>
 
         {/* Action Buttons & Counter */}
-        <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+        <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 lg:gap-4">
           {/* Live Demo Button */}
           <Button
             render={
@@ -88,14 +88,14 @@ export function ProjectCard({ project, onNext }: ProjectCardProps) {
             variant="ghost"
             onClick={onNext}
             title={onNext ? "Click to view next project" : undefined}
-            className={`flex items-baseline font-mono ml-2 sm:ml-3 select-none transition-opacity h-auto p-0 hover:bg-transparent bg-transparent ${
+            className={`flex items-baseline font-mono ml-1.5 sm:ml-2 select-none transition-opacity h-auto p-0 hover:bg-transparent bg-transparent ${
               onNext ? "cursor-pointer hover:opacity-80" : "cursor-default"
             }`}
           >
-            <span className="text-2xl sm:text-3xl font-bold text-neutral-600 tracking-tight">
+            <span className="text-lg sm:text-2xl lg:text-3xl font-bold text-neutral-600 tracking-tight">
               {project.index}
             </span>
-            <span className="text-base sm:text-lg font-medium text-neutral-700">
+            <span className="text-xs sm:text-sm lg:text-lg font-medium text-neutral-700">
               /{project.total}
             </span>
           </Button>
@@ -103,7 +103,7 @@ export function ProjectCard({ project, onNext }: ProjectCardProps) {
       </div>
 
       {/* Right Column: Safari Mockup */}
-      <div className="w-full flex items-center justify-center">
+      <div className="w-full flex items-center justify-center max-w-[280px] sm:max-w-md lg:max-w-none mx-auto mt-1 lg:mt-0">
         <Safari
           mode="simple"
           url={project.browserUrl}

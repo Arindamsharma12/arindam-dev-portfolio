@@ -70,20 +70,6 @@ export const ExperienceScreen = () => {
       {/* Anchor alias for #experience */}
       <span id="experience" className="sr-only" aria-hidden="true" />
 
-      {/* Top vignette blend matching TechScreen */}
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black via-black/80 to-transparent z-[2]"
-        aria-hidden="true"
-      />
-
-      {/* Cosmic background radial glows */}
-      <div
-        className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 flex items-center justify-center"
-        aria-hidden="true"
-      >
-        <div className="w-[600px] h-[400px] sm:w-[900px] sm:h-[600px] rounded-full bg-[#5227FF]/15 blur-[140px]" />
-      </div>
-
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-14">

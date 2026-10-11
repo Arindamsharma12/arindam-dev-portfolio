@@ -91,7 +91,7 @@ const HeroContent = () => {
         <Button
           size="lg"
           className="rounded-full px-7 h-11 inline-flex items-center gap-2 cursor-pointer transition-all active:scale-95 shadow-sm"
-          render={<a href="mailto:hello@arin.dev" />}
+          render={<a href="mailto:arindamsharma0123@gmail.com" />}
         >
           <Mail className="size-4" />
           <span>Let&apos;s Talk</span>
