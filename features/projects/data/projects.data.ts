@@ -6,8 +6,8 @@ export interface Project {
   title: string;
   description: string;
   techStack: string[];
-  liveUrl: string;
-  githubUrl: string;
+  liveUrl?: string;
+  githubUrl?: string;
   browserUrl: string;
   imageSrc: string;
 }
@@ -59,7 +59,7 @@ export const PROJECTS_DATA: Project[] = [
       "Gemini AI",
     ],
     liveUrl: "https://wallmantra.com",
-    githubUrl: "https://github.com",
+    githubUrl: "",
     browserUrl: "wallmantra.com",
     imageSrc:
       "https://wallmantra.com/inspiration/app/uploads/2026/09/wallmantra-og-image.webp",

@@ -3,10 +3,14 @@ import HeroContent from "../component/hero-content.component";
 
 const HeroScreen = () => {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-black">
+    <section
+      id="home"
+      aria-label="Home"
+      className="relative min-h-screen overflow-hidden bg-black"
+    >
       <Background />
       <HeroContent />
-    </div>
+    </section>
   );
 };
 

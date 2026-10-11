@@ -80,6 +80,11 @@ export function Header({ className }: HeaderProps) {
         <div className="flex items-center">
           <Link
             href="#home"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              window.history.pushState(null, "", "#home");
+            }}
             className="text-white text-base font-semibold tracking-tight hover:opacity-80 transition-opacity select-none"
           >
             Arindam
@@ -93,6 +98,13 @@ export function Header({ className }: HeaderProps) {
               <li key={item.label}>
                 <Link
                   href={item.href}
+                  onClick={(e) => {
+                    if (item.href === "#home") {
+                      e.preventDefault();
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                      window.history.pushState(null, "", "#home");
+                    }
+                  }}
                   className="text-sm font-medium text-neutral-400 hover:text-white transition-colors duration-200"
                 >
                   {item.label}
@@ -144,7 +156,14 @@ export function Header({ className }: HeaderProps) {
                   <li key={item.label}>
                     <Link
                       href={item.href}
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={(e) => {
+                        setMobileMenuOpen(false);
+                        if (item.href === "#home") {
+                          e.preventDefault();
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                          window.history.pushState(null, "", "#home");
+                        }
+                      }}
                       className="block text-base font-medium text-neutral-300 hover:text-white py-1 transition-colors"
                     >
                       {item.label}
