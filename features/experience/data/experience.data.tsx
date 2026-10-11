@@ -104,6 +104,8 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
         employmentType: "Internship",
         duration: "May 2025 - Jul 2025 · 3 mos",
         location: "New Delhi, Delhi, India",
+        description:
+          "Contributed to building responsive web interfaces, Next.js UI components, and integrating RESTful APIs.",
         skills: ["Next.js", "GitHub", "Tailwind CSS", "REST APIs"],
       },
     ],

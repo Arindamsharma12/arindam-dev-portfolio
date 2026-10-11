@@ -52,35 +52,39 @@ export function ProjectCard({ project, onNext }: ProjectCardProps) {
         {/* Action Buttons & Counter */}
         <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 lg:gap-4">
           {/* Live Demo Button */}
-          <Button
-            render={
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              />
-            }
-            className="bg-white hover:bg-neutral-200 text-black font-semibold rounded-xl h-11 px-5 shadow-sm inline-flex items-center gap-2 cursor-pointer transition-all active:scale-95"
-          >
-            <ExternalLink className="size-4 stroke-[2.2]" />
-            <span>Live Demo</span>
-          </Button>
+          {Boolean(project.liveUrl && project.liveUrl.trim()) && (
+            <Button
+              render={
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />
+              }
+              className="bg-white hover:bg-neutral-200 text-black font-semibold rounded-xl h-11 px-5 shadow-sm inline-flex items-center gap-2 cursor-pointer transition-all active:scale-95"
+            >
+              <ExternalLink className="size-4 stroke-[2.2]" />
+              <span>Live Demo</span>
+            </Button>
+          )}
 
           {/* View Code Button */}
-          <Button
-            variant="outline"
-            render={
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              />
-            }
-            className="bg-[#121214] hover:bg-neutral-800 text-white border-neutral-800 font-semibold rounded-xl h-11 px-5 inline-flex items-center gap-2 cursor-pointer transition-all active:scale-95"
-          >
-            <GitBranch className="size-4" />
-            <span>View Code</span>
-          </Button>
+          {Boolean(project.githubUrl && project.githubUrl.trim()) && (
+            <Button
+              variant="outline"
+              render={
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />
+              }
+              className="bg-[#121214] hover:bg-neutral-800 text-white border-neutral-800 font-semibold rounded-xl h-11 px-5 inline-flex items-center gap-2 cursor-pointer transition-all active:scale-95"
+            >
+              <GitBranch className="size-4" />
+              <span>View Code</span>
+            </Button>
+          )}
 
           {/* Index Counter */}
           <Button
