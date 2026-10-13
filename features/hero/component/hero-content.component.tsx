@@ -102,7 +102,7 @@ const HeroContent = () => {
           className="rounded-full px-7 h-11 inline-flex items-center gap-2 cursor-pointer transition-all active:scale-95"
           render={
             <a
-              href="https://drive.google.com/file/d/1FdJxIXm1uEbT4NPgiqU2BdTyNuCT-m7o/view?usp=sharing"
+              href="https://drive.google.com/file/d/1uNV_Sa1xVLXMm8ameuOSPvVJoXHuBSqc/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
             />
