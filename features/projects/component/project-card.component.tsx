@@ -15,34 +15,34 @@ export interface ProjectCardProps {
 
 export function ProjectCard({ project, onNext }: ProjectCardProps) {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-12 xl:gap-16 items-center w-full">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 lg:gap-8 xl:gap-12 items-center w-full">
       {/* Left Column: Details */}
-      <div className="flex flex-col justify-center max-w-xl mx-auto lg:mx-0 w-full">
+      <div className="flex flex-col justify-center max-w-xl mx-auto lg:mx-0 w-full lg:col-span-5">
         {/* Category / Tagline */}
         <p className="text-xs sm:text-sm lg:text-base font-semibold text-white/90 tracking-normal leading-snug">
           {project.category}
         </p>
 
         {/* Thin Divider Line */}
-        <div className="w-full h-px bg-neutral-800/80 mt-1.5 mb-2.5 sm:mt-2.5 sm:mb-4 lg:mt-3 lg:mb-7" />
+        <div className="w-full h-px bg-neutral-800/80 mt-1.5 mb-2.5 sm:mt-2.5 sm:mb-4 lg:mt-3 lg:mb-6" />
 
         {/* Project Title */}
-        <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-2 sm:mb-3 lg:mb-6 tracking-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-white mb-2 sm:mb-3 lg:mb-5 tracking-tight">
           {project.title}
         </h2>
 
         {/* Description */}
-        <p className="text-neutral-400 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed mb-3 sm:mb-5 lg:mb-8">
+        <p className="text-neutral-400 text-xs sm:text-sm md:text-base leading-relaxed mb-3 sm:mb-4 lg:mb-6">
           {project.description}
         </p>
 
         {/* Tech Stack Badges */}
-        <div className="flex flex-wrap gap-1.5 sm:gap-2 lg:gap-2.5 mb-3 sm:mb-5 lg:mb-10">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-5 lg:mb-8">
           {project.techStack.map((tech) => (
             <Badge
               key={tech}
               variant="outline"
-              className="bg-[#141417] hover:bg-[#1f1f24] border-neutral-800 text-neutral-300 text-[10px] sm:text-xs lg:text-sm font-normal px-2.5 py-0.5 sm:px-3 sm:py-1 lg:px-3.5 lg:py-1.5 rounded-md sm:rounded-lg transition-colors cursor-default"
+              className="bg-[#141417] hover:bg-[#1f1f24] border-neutral-800 text-neutral-300 text-[10px] sm:text-xs font-normal px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-md sm:rounded-lg transition-colors cursor-default"
             >
               {tech}
             </Badge>
@@ -61,7 +61,7 @@ export function ProjectCard({ project, onNext }: ProjectCardProps) {
                   rel="noopener noreferrer"
                 />
               }
-              className="bg-white hover:bg-neutral-200 text-black font-semibold rounded-xl h-11 px-5 shadow-sm inline-flex items-center gap-2 cursor-pointer transition-all active:scale-95"
+              className="bg-white hover:bg-neutral-200 text-black font-semibold rounded-xl h-10 sm:h-11 px-4 sm:px-5 shadow-sm inline-flex items-center gap-2 cursor-pointer transition-all active:scale-95 text-xs sm:text-sm"
             >
               <ExternalLink className="size-4 stroke-[2.2]" />
               <span>Live Demo</span>
@@ -79,7 +79,7 @@ export function ProjectCard({ project, onNext }: ProjectCardProps) {
                   rel="noopener noreferrer"
                 />
               }
-              className="bg-[#121214] hover:bg-neutral-800 text-white border-neutral-800 font-semibold rounded-xl h-11 px-5 inline-flex items-center gap-2 cursor-pointer transition-all active:scale-95"
+              className="bg-[#121214] hover:bg-neutral-800 text-white border-neutral-800 font-semibold rounded-xl h-10 sm:h-11 px-4 sm:px-5 inline-flex items-center gap-2 cursor-pointer transition-all active:scale-95 text-xs sm:text-sm"
             >
               <GitBranch className="size-4" />
               <span>View Code</span>
@@ -107,7 +107,7 @@ export function ProjectCard({ project, onNext }: ProjectCardProps) {
       </div>
 
       {/* Right Column: Safari Mockup */}
-      <div className="w-full flex items-center justify-center max-w-[280px] sm:max-w-md lg:max-w-none mx-auto mt-1 lg:mt-0">
+      <div className="w-full flex items-center justify-center max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-none mx-auto mt-2 lg:mt-0 lg:col-span-7">
         <Safari
           mode="simple"
           url={project.browserUrl}

@@ -65,8 +65,8 @@ export function ProjectsScreen() {
       style={{ height: `${PROJECTS_DATA.length * 100}vh` }}
     >
       {/* Pinned Sticky Viewport */}
-      <div className="sticky top-0 min-h-screen h-[100dvh] w-full flex flex-col justify-center px-4 sm:px-6 lg:px-12 pt-20 pb-4 sm:py-8 lg:py-0 overflow-y-auto lg:overflow-hidden">
-        <div className="relative z-10 w-full max-w-7xl mx-auto my-auto">
+      <div className="sticky top-0 min-h-screen h-[100dvh] w-full flex flex-col justify-center px-4 sm:px-6 lg:px-8 xl:px-12 pt-20 pb-4 sm:py-8 lg:py-0 overflow-y-auto lg:overflow-hidden">
+        <div className="relative z-10 w-full max-w-7xl 2xl:max-w-[1440px] mx-auto my-auto">
           <ProjectCard
             project={currentProject}
             onNext={PROJECTS_DATA.length > 1 ? handleNext : undefined}
