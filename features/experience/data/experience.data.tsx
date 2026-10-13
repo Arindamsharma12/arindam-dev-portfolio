@@ -62,7 +62,7 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
     id: "wallmantra",
     company: "WallMantra",
     title: "Software Engineer",
-    subtitle: "WallMantra • Delhi, India (On-site) • Jul 2025 - Present",
+    subtitle: "WallMantra • Delhi, India (On-site) • May 2025 - Present",
     companyUrl: "https://wallmantra.com",
     logo: "https://wallmantra.com/inspiration/app/uploads/2026/07/icon.png",
     totalDuration: "1 yr 6 mos",
@@ -77,7 +77,7 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
       {
         role: "Software Engineer",
         employmentType: "Full-time",
-        duration: "Jul 2025 - Present · 1 yr 4 mos",
+        duration: "May 2025 - Present · 1 yr 6 mos",
         location: "Delhi, India",
         description:
           "I work on building scalable features, improving system performance, and delivering end-to-end solutions across multiple platforms.",
